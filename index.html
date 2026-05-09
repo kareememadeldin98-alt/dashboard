@@ -2014,14 +2014,29 @@ let META = { snapshotDate: '', totalCases: 0 };
 async function loadEmbeddedData() {
   try {
     // Cache busting URL - bypass any caches
-    // Use jsDelivr CDN - bypasses GitHub Pages cache (much faster updates)
-    const url = 'https://cdn.jsdelivr.net/gh/kareememadeldin98-alt/dashboard@main/data.json?v=' + Date.now();
-    const response = await fetch(url, {
-      cache: 'no-store',
-      headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate', 'Pragma': 'no-cache' }
-    });
-    if (!response.ok) throw new Error('HTTP ' + response.status);
-    const json = await response.json();
+    // Try multiple sources for maximum reliability
+    const urls = [
+      'https://raw.githubusercontent.com/kareememadeldin98-alt/dashboard/main/data.json?t=' + Date.now(),
+      'https://cdn.jsdelivr.net/gh/kareememadeldin98-alt/dashboard@main/data.json?v=' + Date.now(),
+      'data.json?t=' + Date.now()
+    ];
+    let json = null;
+    let lastErr = null;
+    for (const url of urls) {
+      try {
+        const response = await fetch(url, { cache: 'no-store' });
+        if (response.ok) {
+          json = await response.json();
+          console.log('Loaded from:', url);
+          break;
+        } else {
+          lastErr = 'HTTP ' + response.status + ' from ' + url;
+        }
+      } catch (e) {
+        lastErr = e.message + ' from ' + url;
+      }
+    }
+    if (!json) throw new Error('All sources failed. Last: ' + lastErr);
     if (json.meta) META = json.meta;
     if (json.passwordHash !== undefined) DASHBOARD_PW_HASH = json.passwordHash;
     const raw = json.data || [];
