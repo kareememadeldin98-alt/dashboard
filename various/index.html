@@ -1,0 +1,2080 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>داش بورد القضايا المتنوعة | النيابة العامة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --gold: #c9a961;
+  --gold-light: #e8d4a0;
+  --gold-dark: #a0824a;
+  --navy: #0d1b2a;
+  --navy-light: #1b263b;
+  --navy-mid: #2c3e50;
+  --cream: #f4ead5;
+  --cream-soft: #faf6ec;
+  --burgundy: #6b2c39;
+  --emerald: #2d5f4e;
+  --rust: #a44a3f;
+  --ink: #1a1a2e;
+  --paper: #fbf8f1;
+  --shadow: 0 10px 40px rgba(13, 27, 42, 0.15);
+  --shadow-lg: 0 20px 60px rgba(13, 27, 42, 0.25);
+  --gold-gradient: linear-gradient(135deg, #c9a961 0%, #e8d4a0 50%, #a0824a 100%);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: var(--paper);
+  background-image: 
+    radial-gradient(circle at 20% 10%, rgba(201, 169, 97, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 90%, rgba(13, 27, 42, 0.05) 0%, transparent 50%),
+    repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(201, 169, 97, 0.02) 60px, rgba(201, 169, 97, 0.02) 61px);
+  color: var(--ink);
+  min-height: 100vh;
+  direction: rtl;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, var(--navy-mid) 100%);
+  color: var(--cream);
+  padding: 2.5rem 3rem;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 4px solid var(--gold);
+  box-shadow: var(--shadow-lg);
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(201, 169, 97, 0.03) 2px, rgba(201, 169, 97, 0.03) 4px);
+  pointer-events: none;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-light), var(--gold), var(--gold-light), transparent);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.crest {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.crest-icon {
+  width: 70px;
+  height: 70px;
+  background: var(--gold-gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 0 0 3px var(--navy), 0 0 0 4px var(--gold), 0 8px 30px rgba(201, 169, 97, 0.4);
+}
+
+.crest-icon {
+  color: var(--navy);
+}
+
+.crest-icon svg {
+  width: 56px;
+  height: 56px;
+  fill: currentColor;
+}
+
+.crest-icon svg circle,
+.crest-icon svg line,
+.crest-icon svg path,
+.crest-icon svg ellipse,
+.crest-icon svg rect,
+.crest-icon svg text {
+  /* fill / stroke تعمل بـ currentColor تلقائياً */
+}
+
+.title-block h1 {
+  font-family: 'Playfair Display', 'Amiri', serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.3rem;
+}
+
+.title-block .subtitle {
+  font-family: 'Amiri', serif;
+  color: var(--cream);
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+  opacity: 0.85;
+  margin-bottom: 0.25rem;
+}
+
+.title-block .prosecution-name {
+  font-family: 'Amiri', serif;
+  color: var(--gold-light);
+  font-size: 1rem;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+  border-top: 1px solid rgba(201, 169, 97, 0.3);
+  padding-top: 0.4rem;
+  margin-top: 0.3rem;
+  display: inline-block;
+}
+
+.header-meta {
+  text-align: left;
+  font-family: 'Amiri', serif;
+  color: var(--gold-light);
+}
+
+.header-meta .label {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 0.2rem;
+}
+
+.header-meta .value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--cream);
+}
+
+.signature {
+  text-align: center;
+  margin: 1.2rem 0 0;
+  font-family: 'Amiri', serif;
+  color: var(--gold);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  position: relative;
+  z-index: 2;
+  padding: 0.6rem 0;
+  border-top: 1px solid rgba(201, 169, 97, 0.25);
+  border-bottom: 1px solid rgba(201, 169, 97, 0.25);
+  background: rgba(13, 27, 42, 0.3);
+}
+
+.signature::before, .signature::after {
+  content: '◆';
+  margin: 0 1.2rem;
+  color: var(--gold-light);
+  font-size: 0.7rem;
+  vertical-align: middle;
+}
+
+/* Container */
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 2.5rem 3rem;
+}
+
+/* KPI Cards */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.kpi-card {
+  background: linear-gradient(135deg, #ffffff 0%, var(--cream-soft) 100%);
+  border: 1px solid rgba(201, 169, 97, 0.3);
+  border-radius: 8px;
+  padding: 1.8rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.kpi-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gold-gradient);
+}
+
+.kpi-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.kpi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--gold);
+}
+
+.kpi-card:hover::after {
+  opacity: 1;
+}
+
+.kpi-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--navy);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.kpi-icon svg {
+  width: 26px;
+  height: 26px;
+  fill: var(--gold);
+}
+
+.kpi-label {
+  font-family: 'Amiri', serif;
+  font-size: 1rem;
+  color: var(--navy-mid);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.kpi-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.kpi-value .unit {
+  font-size: 1.2rem;
+  color: var(--gold-dark);
+  margin-right: 0.3rem;
+}
+
+.kpi-sub {
+  font-size: 0.85rem;
+  color: var(--navy-mid);
+  opacity: 0.7;
+}
+
+.kpi-card.highlight {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  color: var(--cream);
+}
+
+.kpi-card.highlight .kpi-label,
+.kpi-card.highlight .kpi-value,
+.kpi-card.highlight .kpi-sub {
+  color: var(--cream);
+}
+
+.kpi-card.highlight .kpi-value {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.kpi-card.highlight .kpi-icon {
+  background: var(--gold-gradient);
+}
+
+.kpi-card.highlight .kpi-icon svg {
+  fill: var(--navy);
+}
+
+/* Filters bar */
+.filters-bar {
+  background: white;
+  border: 1px solid rgba(201, 169, 97, 0.3);
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  position: relative;
+}
+
+.filters-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--gold-gradient);
+  border-radius: 0 8px 8px 0;
+}
+
+.filter-label {
+  font-family: 'Amiri', serif;
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+
+.filter-select, .filter-input {
+  padding: 0.6rem 1rem;
+  border: 1px solid rgba(201, 169, 97, 0.4);
+  border-radius: 6px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.95rem;
+  background: var(--cream-soft);
+  color: var(--navy);
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 140px;
+}
+
+.filter-select:hover, .filter-input:hover {
+  border-color: var(--gold);
+  background: white;
+}
+
+.filter-select:focus, .filter-input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.2);
+}
+
+.btn-reset {
+  padding: 0.6rem 1.5rem;
+  background: var(--burgundy);
+  color: var(--cream);
+  border: none;
+  border-radius: 6px;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-right: auto;
+}
+
+.btn-reset:hover {
+  background: var(--navy);
+  transform: translateY(-1px);
+}
+
+/* Charts Grid */
+.charts-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.chart-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.chart-card {
+  background: white;
+  border: 1px solid rgba(201, 169, 97, 0.3);
+  border-radius: 8px;
+  padding: 1.8rem;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.chart-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gold-gradient);
+  border-radius: 8px 8px 0 0;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(201, 169, 97, 0.2);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chart-title {
+  font-family: 'Playfair Display', 'Amiri', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.chart-title-decoration {
+  width: 6px;
+  height: 24px;
+  background: var(--gold-gradient);
+  border-radius: 3px;
+}
+
+.chart-subtitle {
+  font-family: 'Amiri', serif;
+  font-size: 0.9rem;
+  color: var(--navy-mid);
+  opacity: 0.7;
+}
+
+.chart-container {
+  position: relative;
+  height: 320px;
+}
+
+.chart-container.tall {
+  height: 400px;
+}
+
+/* Officers list */
+.officers-list {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-left: 0.5rem;
+}
+
+.officers-list::-webkit-scrollbar { width: 6px; }
+.officers-list::-webkit-scrollbar-track { background: var(--cream-soft); border-radius: 3px; }
+.officers-list::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+.officer-item {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-bottom: 1px dashed rgba(201, 169, 97, 0.3);
+  gap: 1rem;
+}
+
+.officer-item:last-child { border-bottom: none; }
+
+.officer-rank {
+  width: 32px;
+  height: 32px;
+  background: var(--cream-soft);
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  color: var(--navy);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.officer-rank.top-3 {
+  background: var(--gold-gradient);
+  color: var(--navy);
+  border-color: var(--navy);
+}
+
+.officer-name {
+  flex: 1;
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 0.95rem;
+}
+
+.officer-bar-wrap {
+  flex: 2;
+  height: 8px;
+  background: var(--cream-soft);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.officer-bar {
+  height: 100%;
+  background: var(--gold-gradient);
+  border-radius: 4px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.officer-count {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  color: var(--navy);
+  font-size: 1.1rem;
+  min-width: 30px;
+  text-align: left;
+}
+
+/* Table */
+.table-section {
+  background: white;
+  border: 1px solid rgba(201, 169, 97, 0.3);
+  border-radius: 8px;
+  padding: 1.8rem;
+  box-shadow: var(--shadow);
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.table-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gold-gradient);
+  border-radius: 8px 8px 0 0;
+}
+
+.table-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.btn-print {
+  padding: 0.6rem 1.4rem;
+  background: var(--navy);
+  color: var(--gold-light);
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.25s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-print:hover {
+  background: var(--gold);
+  color: var(--navy);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(201, 169, 97, 0.35);
+}
+
+.btn-print svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  max-height: 600px;
+  overflow-y: auto;
+  border: 1px solid rgba(201, 169, 97, 0.2);
+  border-radius: 6px;
+}
+
+.table-wrapper::-webkit-scrollbar { width: 8px; height: 8px; }
+.table-wrapper::-webkit-scrollbar-track { background: var(--cream-soft); }
+.table-wrapper::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+th {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  color: var(--gold-light);
+  padding: 1rem 0.8rem;
+  text-align: right;
+  font-family: 'Amiri', serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--gold);
+}
+
+td {
+  padding: 0.8rem;
+  border-bottom: 1px solid rgba(201, 169, 97, 0.15);
+  text-align: right;
+  color: var(--ink);
+}
+
+tbody tr { transition: background 0.2s; }
+tbody tr:hover { background: var(--cream-soft); }
+tbody tr:nth-child(even) { background: rgba(244, 234, 213, 0.3); }
+tbody tr:nth-child(even):hover { background: var(--cream-soft); }
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge-success { background: rgba(45, 95, 78, 0.15); color: var(--emerald); border: 1px solid var(--emerald); }
+.badge-pending { background: rgba(164, 74, 63, 0.15); color: var(--rust); border: 1px solid var(--rust); }
+.badge-table { background: rgba(201, 169, 97, 0.2); color: var(--gold-dark); border: 1px solid var(--gold); }
+.badge-section { background: rgba(13, 27, 42, 0.1); color: var(--navy); border: 1px solid var(--navy-mid); }
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--navy-mid);
+  font-family: 'Amiri', serif;
+  border-top: 1px solid rgba(201, 169, 97, 0.3);
+  margin-top: 3rem;
+  background: linear-gradient(180deg, transparent 0%, var(--cream-soft) 100%);
+}
+
+.footer .ornament-mini {
+  color: var(--gold);
+  letter-spacing: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: var(--navy-mid);
+  font-family: 'Amiri', serif;
+  font-size: 1.1rem;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.kpi-card { animation: fadeUp 0.6s ease-out backwards; }
+.kpi-card:nth-child(1) { animation-delay: 0.1s; }
+.kpi-card:nth-child(2) { animation-delay: 0.2s; }
+.kpi-card:nth-child(3) { animation-delay: 0.3s; }
+.kpi-card:nth-child(4) { animation-delay: 0.4s; }
+.kpi-card:nth-child(5) { animation-delay: 0.5s; }
+
+.chart-card { animation: fadeUp 0.6s ease-out backwards; animation-delay: 0.6s; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .charts-grid { grid-template-columns: 1fr; }
+  .chart-row-2 { grid-template-columns: 1fr; }
+  .header-content { flex-direction: column; gap: 1rem; text-align: center; }
+  .header-meta { text-align: center; }
+}
+
+@media (max-width: 640px) {
+  .container, .header { padding: 1.5rem 1rem; }
+  .kpi-value { font-size: 2.2rem; }
+  .title-block h1 { font-size: 1.5rem; }
+}
+
+/* ====================== PRINT STYLES - LUXURY THEME ====================== */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 0.8cm 0.8cm 0.8cm 0.8cm;
+  }
+  
+  /* إجبار المتصفح على طباعة الخلفيات والألوان */
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  
+  html, body {
+    background: #fbf8f1 !important;
+    color: #1a1a2e !important;
+    font-size: 10pt;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* إخفاء كل الصفحة افتراضياً ثم إظهار منطقة الطباعة فقط */
+  body * { visibility: hidden; }
+  .print-area, .print-area * { visibility: visible; }
+  
+  .print-area {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #fbf8f1 !important;
+  }
+  
+  /* إخفاء الهيدر الأصلي والكروت والفوتر والشاشة الترحيبية */
+  .header, .footer,
+  .container > .kpi-grid,
+  .container > .filters-bar,
+  .container > .charts-grid,
+  .container > .chart-row-2,
+  .welcome-overlay { display: none !important; }
+  
+  .table-section::before { display: none !important; }
+  .chart-header, .table-actions { display: none !important; }
+  
+  .table-section {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+  }
+  
+  /* ============ ترويسة الطباعة (مطابقة لهيدر الداش بورد) ============ */
+  .print-header {
+    display: block !important;
+    background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #2c3e50 100%) !important;
+    color: #f4ead5 !important;
+    padding: 1.1rem 1.4rem 0.8rem !important;
+    margin: 0 0 0.9rem 0 !important;
+    border-radius: 6px !important;
+    border-bottom: 4px solid #c9a961 !important;
+    box-shadow: 0 6px 18px rgba(13, 27, 42, 0.25) !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  
+  /* خط ذهبي خفيف أسفل الترويسة */
+  .print-header::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -2px !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 1px !important;
+    background: linear-gradient(90deg, transparent, #e8d4a0, #c9a961, #e8d4a0, transparent) !important;
+  }
+  
+  .print-header .ph-top {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    gap: 1rem !important;
+  }
+  
+  .print-header .ph-crest {
+    display: flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+  }
+  
+  .print-header .ph-crest-icon {
+    width: 56px !important;
+    height: 56px !important;
+    background: linear-gradient(135deg, #c9a961 0%, #e8d4a0 50%, #a0824a 100%) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 0 0 2px #0d1b2a, 0 0 0 3px #c9a961 !important;
+    flex-shrink: 0 !important;
+  }
+  
+  .print-header .ph-crest-icon {
+    color: #0d1b2a !important;
+  }
+  
+  .print-header .ph-crest-icon svg {
+    width: 44px !important;
+    height: 44px !important;
+    fill: currentColor !important;
+  }
+  
+  .print-header .ph-title-block h1 {
+    font-family: 'Playfair Display', 'Amiri', serif !important;
+    font-size: 18pt !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.5px !important;
+    color: #e8d4a0 !important;
+    margin: 0 0 0.2rem 0 !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.35) !important;
+  }
+  
+  .print-header .ph-subtitle {
+    font-family: 'Amiri', serif !important;
+    color: #f4ead5 !important;
+    font-size: 10pt !important;
+    letter-spacing: 0.8px !important;
+    opacity: 0.92 !important;
+    margin: 0 0 0.2rem 0 !important;
+  }
+  
+  .print-header .ph-prosecution-name {
+    font-family: 'Amiri', serif !important;
+    color: #e8d4a0 !important;
+    font-size: 10pt !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.6px !important;
+    border-top: 1px solid rgba(201, 169, 97, 0.4) !important;
+    padding-top: 0.2rem !important;
+    margin-top: 0.15rem !important;
+    display: inline-block !important;
+  }
+  
+  .print-header .ph-meta-side {
+    text-align: left !important;
+    font-family: 'Amiri', serif !important;
+    color: #e8d4a0 !important;
+    flex-shrink: 0 !important;
+  }
+  
+  .print-header .ph-meta-label {
+    font-size: 8pt !important;
+    letter-spacing: 1.5px !important;
+    opacity: 0.8 !important;
+    margin-bottom: 0.15rem !important;
+    text-transform: uppercase !important;
+  }
+  
+  .print-header .ph-meta-value {
+    font-size: 12pt !important;
+    font-weight: 700 !important;
+    color: #f4ead5 !important;
+  }
+  
+  .print-header .ph-signature {
+    text-align: center !important;
+    margin-top: 0.7rem !important;
+    font-family: 'Amiri', serif !important;
+    color: #c9a961 !important;
+    font-size: 11pt !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px !important;
+    padding: 0.3rem 0 !important;
+    border-top: 1px solid rgba(201, 169, 97, 0.3) !important;
+    border-bottom: 1px solid rgba(201, 169, 97, 0.3) !important;
+    background: rgba(13, 27, 42, 0.3) !important;
+  }
+  
+  .print-header .ph-signature::before,
+  .print-header .ph-signature::after {
+    content: '\25C6' !important;
+    margin: 0 0.7rem !important;
+    color: #e8d4a0 !important;
+    font-size: 7pt !important;
+    vertical-align: middle !important;
+  }
+  
+  .print-header .ph-meta {
+    display: flex !important;
+    justify-content: space-between !important;
+    font-family: 'Cairo', sans-serif !important;
+    font-size: 8.5pt !important;
+    color: #e8d4a0 !important;
+    margin-top: 0.5rem !important;
+    padding-top: 0.3rem !important;
+  }
+  
+  .print-header .ph-meta span {
+    color: #e8d4a0 !important;
+  }
+  
+  /* ============ الجدول ============ */
+  .table-wrapper {
+    overflow: visible !important;
+    max-height: none !important;
+    border: 2px solid #c9a961 !important;
+    border-radius: 6px !important;
+    box-shadow: 0 4px 12px rgba(13, 27, 42, 0.1) !important;
+  }
+  
+  table {
+    width: 100% !important;
+    font-size: 8.5pt !important;
+    border-collapse: collapse !important;
+    page-break-inside: auto !important;
+    background: white !important;
+  }
+  
+  thead { display: table-header-group !important; }
+  tr { page-break-inside: avoid; page-break-after: auto; }
+  
+  th {
+    background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%) !important;
+    background-color: #0d1b2a !important;
+    color: #e8d4a0 !important;
+    padding: 0.5rem 0.35rem !important;
+    font-size: 9pt !important;
+    font-family: 'Amiri', serif !important;
+    font-weight: 700 !important;
+    border: 1px solid #0d1b2a !important;
+    border-bottom: 2px solid #c9a961 !important;
+    text-align: right !important;
+    letter-spacing: 0.3px !important;
+  }
+  
+  td {
+    padding: 0.4rem 0.35rem !important;
+    border: 1px solid rgba(201, 169, 97, 0.4) !important;
+    color: #1a1a2e !important;
+    background: white !important;
+    font-size: 8.5pt !important;
+    text-align: right !important;
+    font-family: 'Cairo', sans-serif !important;
+  }
+  
+  tbody tr:nth-child(even) td {
+    background: #faf6ec !important;
+    background-color: #faf6ec !important;
+  }
+  
+  /* ============ الشارات الملوّنة ============ */
+  .badge {
+    display: inline-block !important;
+    padding: 0.15rem 0.5rem !important;
+    border-radius: 10px !important;
+    font-size: 7.5pt !important;
+    font-weight: 600 !important;
+  }
+  
+  .badge-success {
+    background: rgba(45, 95, 78, 0.18) !important;
+    background-color: #d8e6df !important;
+    color: #2d5f4e !important;
+    border: 1px solid #2d5f4e !important;
+  }
+  
+  .badge-pending {
+    background: rgba(164, 74, 63, 0.18) !important;
+    background-color: #f0d8d3 !important;
+    color: #a44a3f !important;
+    border: 1px solid #a44a3f !important;
+  }
+  
+  .badge-table {
+    background: rgba(201, 169, 97, 0.22) !important;
+    background-color: #f0e3c2 !important;
+    color: #a0824a !important;
+    border: 1px solid #c9a961 !important;
+  }
+  
+  .badge-section {
+    background: rgba(13, 27, 42, 0.1) !important;
+    background-color: #d6dae0 !important;
+    color: #0d1b2a !important;
+    border: 1px solid #2c3e50 !important;
+  }
+  
+  /* ============ تذييل بسيط ============ */
+  .print-footer {
+    display: block !important;
+    text-align: center !important;
+    margin-top: 0.8rem !important;
+    padding: 0.5rem 0 !important;
+    border-top: 2px solid #c9a961 !important;
+    font-family: 'Amiri', serif !important;
+    font-size: 9pt !important;
+    color: #6b2c39 !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+  }
+}
+
+.print-header, .print-footer { display: none; }
+
+/* Welcome Screen */
+.welcome-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, var(--navy-mid) 100%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.welcome-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(201, 169, 97, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(201, 169, 97, 0.1) 0%, transparent 50%),
+    repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(201, 169, 97, 0.04) 60px, rgba(201, 169, 97, 0.04) 61px);
+  pointer-events: none;
+}
+
+.welcome-card {
+  background: linear-gradient(135deg, var(--cream-soft) 0%, white 100%);
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  padding: 3rem;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+
+.welcome-card::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 100%; height: 5px;
+  background: var(--gold-gradient);
+  border-radius: 12px 12px 0 0;
+}
+
+.welcome-crest {
+  width: 90px;
+  height: 90px;
+  background: var(--gold-gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 0 0 4px var(--navy), 0 0 0 5px var(--gold), 0 10px 40px rgba(201, 169, 97, 0.5);
+}
+
+.welcome-crest {
+  color: var(--navy);
+}
+
+.welcome-crest svg {
+  width: 70px; height: 70px;
+  fill: currentColor;
+}
+
+.welcome-title {
+  font-family: 'Playfair Display', 'Amiri', serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.welcome-subtitle {
+  font-family: 'Amiri', serif;
+  color: var(--navy-mid);
+  margin-bottom: 0.3rem;
+}
+
+.welcome-prosecution {
+  font-family: 'Amiri', serif;
+  font-size: 0.95rem;
+  color: var(--burgundy);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(201, 169, 97, 0.3);
+}
+
+.welcome-instruction {
+  font-family: 'Cairo', sans-serif;
+  font-size: 1.05rem;
+  color: var(--navy-mid);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+.btn-load {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  color: var(--gold-light);
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 8px 25px rgba(13, 27, 42, 0.3);
+}
+
+.btn-load:hover {
+  background: var(--gold-gradient);
+  color: var(--navy);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(201, 169, 97, 0.4);
+}
+
+.btn-load svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.welcome-footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(201, 169, 97, 0.3);
+  font-family: 'Amiri', serif;
+  font-size: 0.85rem;
+  color: var(--navy-mid);
+  opacity: 0.8;
+}
+
+.welcome-signature {
+  font-weight: 700;
+  color: var(--burgundy);
+  margin-top: 0.3rem;
+}
+
+.error-msg {
+  background: rgba(164, 74, 63, 0.1);
+  border: 1px solid var(--rust);
+  color: var(--rust);
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.95rem;
+  display: none;
+}
+
+.error-msg.show { display: block; }
+
+.loading-spinner {
+  display: none;
+  margin: 1rem auto;
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--cream-soft);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.loading-spinner.show { display: block; }
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Refresh button */
+.btn-refresh {
+  padding: 0.6rem 1.3rem;
+  background: var(--emerald);
+  color: var(--cream);
+  border: none;
+  border-radius: 6px;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-refresh:hover {
+  background: var(--navy);
+  transform: translateY(-1px);
+}
+
+.btn-refresh svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.file-info {
+  font-family: 'Amiri', serif;
+  font-size: 0.85rem;
+  color: var(--navy-mid);
+  margin-right: auto;
+}
+
+.file-info .file-name {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+@media print {
+  .welcome-overlay { display: none !important; }
+}
+
+/* ===== Password Overlay ===== */
+#passwordOverlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, var(--navy) 0%, #1a2f47 60%, #0a1520 100%);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: rtl;
+}
+.pw-box {
+  background: linear-gradient(160deg, #ffffff 0%, var(--cream-soft) 100%);
+  border: 2px solid var(--gold);
+  border-radius: 16px;
+  padding: 3rem 2.5rem;
+  width: 420px;
+  max-width: 92vw;
+  text-align: center;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,169,97,0.2);
+  position: relative;
+}
+.pw-box::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: 10%; right: 10%;
+  height: 3px;
+  background: var(--gold-gradient);
+  border-radius: 2px;
+}
+.pw-icon {
+  width: 72px; height: 72px;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.5rem;
+  border: 3px solid var(--gold);
+  box-shadow: 0 8px 25px rgba(13,27,42,0.3);
+}
+.pw-icon svg { width: 32px; height: 32px; fill: var(--gold); }
+.pw-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.55rem; font-weight: 900;
+  color: var(--navy); margin-bottom: 0.4rem;
+}
+.pw-subtitle {
+  font-family: 'Amiri', serif;
+  color: var(--navy-mid); font-size: 0.95rem;
+  margin-bottom: 2rem; opacity: 0.8;
+}
+.pw-decoration { color: var(--gold); font-size: 0.65rem; margin: 0 0.4rem; vertical-align: middle; }
+.pw-input {
+  width: 100%; padding: 0.85rem 1.2rem;
+  border: 2px solid rgba(201,169,97,0.4);
+  border-radius: 8px;
+  font-family: 'Cairo', sans-serif; font-size: 1.1rem;
+  text-align: center; letter-spacing: 5px;
+  outline: none; color: var(--navy);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  margin-bottom: 1rem; background: #fff;
+}
+.pw-input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201,169,97,0.15);
+}
+.pw-btn {
+  width: 100%; padding: 0.9rem;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  color: var(--gold-light); border: none; border-radius: 8px;
+  font-family: 'Amiri', serif; font-size: 1.1rem; font-weight: 700;
+  cursor: pointer; letter-spacing: 1.5px;
+  transition: all 0.3s;
+}
+.pw-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(13,27,42,0.35);
+}
+.pw-error {
+  color: var(--rust); font-family: 'Cairo', sans-serif;
+  font-size: 0.92rem; margin-top: 0.8rem;
+  display: none; font-weight: 600;
+  animation: shake 0.4s ease;
+}
+@keyframes shake {
+  0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)}
+}
+
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+
+<!-- Password Overlay -->
+<div id="passwordOverlay" style="display:none;">
+  <div class="pw-box">
+    <div class="pw-icon">
+      <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+    </div>
+    <div class="pw-title">داش بورد القضايا المتنوعة</div>
+    <div class="pw-subtitle">
+      <span class="pw-decoration">◆</span>نيابة قسم امبابة &mdash; نيابة شمال الجيزة الكلية<span class="pw-decoration">◆</span>
+    </div>
+    <input type="password" id="pwInput" class="pw-input" placeholder="● ● ● ● ● ●"
+      onkeydown="if(event.key==='Enter')checkPassword()">
+    <button class="pw-btn" onclick="checkPassword()">دخول &nbsp;&#10095;</button>
+    <div id="pwError" class="pw-error">&#10060; كلمة السر غير صحيحة &mdash; حاول مرة أخرى</div>
+  </div>
+</div>
+<!-- Welcome Screen -->
+
+<header class="header">
+  <div class="header-content">
+    <div class="title-block" style="text-align:right;">
+      <h1>داش بورد تحقيقات القضايا المتنوعة</h1>
+      <div class="subtitle">النيابة العامة المصرية &middot; لوحة المتابعة الإحصائية</div>
+      <div class="prosecution-name">نيابة قسم امبابة &mdash; نيابة شمال الجيزة الكلية</div>
+    </div>
+    <div class="header-meta">
+      <div class="label">السنة القضائية</div>
+      <div class="value">2025 / 2026</div>
+    </div>
+  </div>
+  <div class="signature">كريم محمد عماد الدين &mdash; وكيل النائب العام</div>
+</header>
+
+<div class="container">
+
+  <div class="kpi-grid" id="kpiGrid"></div>
+
+  <div class="filters-bar">
+    <span class="filter-label">تصفية البيانات:</span>
+    <select class="filter-select" id="filterSection">
+      <option value="">كل الأقسام</option>
+    </select>
+    <select class="filter-select" id="filterTable">
+      <option value="">كل الجداول</option>
+    </select>
+    <select class="filter-select" id="filterStatus">
+      <option value="">كل الحالات</option>
+      <option value="done">منتهية</option>
+      <option value="pending">قيد التحقيق</option>
+    </select>
+    <select class="filter-select" id="filterOfficer">
+      <option value="">كل الضباط</option>
+    </select>
+    <select class="filter-select" id="filterCharge">
+      <option value="">كل التهم</option>
+    </select>
+    <input type="text" class="filter-input" id="filterSearch" placeholder="بحث في رقم القضية أو الحصر...">
+    <div class="file-info" id="fileInfo"></div>
+    <button class="btn-refresh" onclick="location.reload()">
+      <svg viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+      تحديث البيانات
+    </button>
+    <button class="btn-reset" onclick="resetFilters()">إعادة تعيين</button>
+  </div>
+
+  <div class="charts-grid">
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title"><span class="chart-title-decoration"></span>توزيع القضايا حسب نوع التهمة</div>
+        <span class="chart-subtitle">إجمالي التصنيفات</span>
+      </div>
+      <div class="chart-container"><canvas id="chargesChart"></canvas></div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title"><span class="chart-title-decoration"></span>نسبة الإنجاز</div>
+      </div>
+      <div class="chart-container"><canvas id="completionChart"></canvas></div>
+    </div>
+  </div>
+
+  <div class="chart-row-2">
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title"><span class="chart-title-decoration"></span>أكثر الضباط مباشرة للقضايا</div>
+        <span class="chart-subtitle">ترتيب تنازلي</span>
+      </div>
+      <div class="officers-list" id="officersList"></div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title"><span class="chart-title-decoration"></span>توزيع القضايا حسب القسم</div>
+      </div>
+      <div class="chart-container"><canvas id="sectionChart"></canvas></div>
+    </div>
+  </div>
+
+  <div class="chart-row-2">
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title"><span class="chart-title-decoration"></span>أسباب البقاء (للقضايا غير المنتهية)</div>
+      </div>
+      <div class="chart-container"><canvas id="reasonsChart"></canvas></div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title"><span class="chart-title-decoration"></span>الإجراءات المتخذة في القضايا</div>
+      </div>
+      <div class="chart-container"><canvas id="actionsChart"></canvas></div>
+    </div>
+  </div>
+
+  <div class="table-section print-area">
+    <!-- Header for printing only - يطابق هيدر الداش بورد بالضبط -->
+    <div class="print-header">
+      <div class="ph-top">
+        <div class="ph-title-block" style="text-align:right;">
+          <h1>داش بورد تحقيقات القضايا المتنوعة</h1>
+          <div class="ph-subtitle">النيابة العامة المصرية &middot; لوحة المتابعة الإحصائية</div>
+          <div class="ph-prosecution-name">نيابة قسم امبابة &mdash; نيابة شمال الجيزة الكلية</div>
+        </div>
+        <div class="ph-meta-side">
+          <div class="ph-meta-label">السنة القضائية</div>
+          <div class="ph-meta-value">2025 / 2026</div>
+        </div>
+      </div>
+      <div class="ph-signature">كريم محمد عماد الدين &mdash; وكيل النائب العام</div>
+      <div class="ph-meta">
+        <span id="printDate"></span>
+        <span id="printCount"></span>
+      </div>
+    </div>
+
+    <div class="chart-header">
+      <div class="chart-title"><span class="chart-title-decoration"></span>السجل التفصيلي للقضايا</div>
+      <div class="table-actions">
+        <span class="chart-subtitle" id="tableCount"></span>
+        <button class="btn-print" onclick="printTable()">
+          <svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+          طباعة السجل
+        </button>
+      </div>
+    </div>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>م</th>
+            <th>رقم الحصر</th>
+            <th>رقم القضية</th>
+            <th>الجدول</th>
+            <th>القسم</th>
+            <th>التهمة</th>
+            <th>الضابط</th>
+            <th>ما تم</th>
+            <th>سبب البقاء</th>
+            <th>الحالة</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+
+    <div class="print-footer">
+      نيابة قسم امبابة &mdash; نيابة شمال الجيزة الكلية
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="ornament-mini">&#10038; &mdash;&mdash; &#10038;</div>
+  <div>لوحة المتابعة الإحصائية لقضايا المتنوع &middot; إعداد / كريم عماد الدين</div>
+</footer>
+
+<script>
+
+// ============= EXCEL FILE LOADER =============
+let DATA = [];
+
+function classifyCharge(charge) {
+  if (!charge || charge === 'nan') return 'غير محدد';
+  charge = String(charge);
+  const hasTraffic = charge.includes('اتجار');
+  const hasUse = charge.includes('تعاطى') || charge.includes('تعاطي') || charge.includes('تحاليل');
+  const hasWeapon = charge.includes('سلاح');
+  const hasTheft = charge.includes('سرقة');
+  const hasAssault = charge.includes('تعدى') || charge.includes('تعدي');
+  const hasOther = charge.includes('سير') || charge.includes('قيادة');
+  
+  const types = [];
+  if (hasTraffic && hasUse) types.push('اتجار وتعاطي');
+  else if (hasTraffic) types.push('اتجار');
+  else if (hasUse) types.push('تعاطي');
+  
+  if (hasWeapon) types.push('سلاح');
+  if (hasTheft) types.push('سرقة');
+  if (hasAssault) types.push('تعدي');
+  if (hasOther) types.push('مرور');
+  
+  return types.length > 0 ? types.join(' + ') : 'مخدرات';
+}
+
+function cleanOfficer(name) {
+  if (!name || String(name) === 'nan' || String(name).trim() === '') return 'غير محدد';
+  let n = String(name).replace(/\n/g, ' ').trim();
+  n = n.replace(/ضابط مباحث/g, '').replace(/مرور/g, '').replace(/تحاليل/g, '');
+  n = n.replace(/مهند حلمى/g, 'مهند حلمي');
+  return n.trim() || 'غير محدد';
+}
+
+function parseExcelDate(val) {
+  if (val === null || val === undefined || val === '') return '';
+  // Excel serial number date
+  if (typeof val === 'number') {
+    const d = XLSX.SSF.parse_date_code(val);
+    if (d) {
+      return `${d.y}-${String(d.m).padStart(2,'0')}-${String(d.d).padStart(2,'0')}`;
+    }
+  }
+  if (val instanceof Date) {
+    return `${val.getFullYear()}-${String(val.getMonth()+1).padStart(2,'0')}-${String(val.getDate()).padStart(2,'0')}`;
+  }
+  // String - try to parse
+  const s = String(val).trim();
+  // dd/mm/yyyy
+  let m = s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/);
+  if (m) return `${m[3]}-${String(m[2]).padStart(2,'0')}-${String(m[1]).padStart(2,'0')}`;
+  // yyyy-mm-dd
+  m = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (m) return `${m[1]}-${m[2]}-${m[3]}`;
+  return '';
+}
+
+function processExcelData(rows) {
+  // البيانات الفعلية تبدأ من الصف 3 (index 2 بعد الـ header وصف نسبة الإنجاز)
+  // نبحث عن صف الـ header اللي فيه "رقم الحصر"
+  let headerIdx = -1;
+  for (let i = 0; i < Math.min(rows.length, 10); i++) {
+    const row = rows[i];
+    if (row && row.some(c => c && String(c).includes('رقم الحصر'))) {
+      headerIdx = i;
+      break;
+    }
+  }
+  if (headerIdx === -1) {
+    throw new Error('لم يتم العثور على رؤوس الأعمدة في الشيت');
+  }
+  
+  const headers = rows[headerIdx].map(h => String(h || '').trim());
+  const colIdx = {
+    seq: headers.indexOf('م'),
+    hasr: headers.indexOf('رقم الحصر'),
+    qadya: headers.indexOf('رقم القضية'),
+    jadwal: headers.indexOf('الجدول'),
+    qism: headers.indexOf('القسم'),
+    tohma: headers.indexOf('التهمة'),
+    date: headers.indexOf('تاريخ الورود'),
+    officer: headers.indexOf('ضابط الواقعة'),
+    action: headers.indexOf('ما تم حتى تاريخه'),
+    reason: headers.indexOf('سبب البقاء'),
+    renewal: headers.indexOf('تاريخ التجديد'),
+    presence: headers.indexOf('تواجد'),
+    done: headers.indexOf('تم الإنتهاء')
+  };
+  
+  const data = [];
+  for (let i = headerIdx + 1; i < rows.length; i++) {
+    const row = rows[i];
+    if (!row || row.every(c => c === null || c === undefined || c === '')) continue;
+    
+    const get = (idx) => {
+      if (idx < 0 || row[idx] === null || row[idx] === undefined) return '';
+      return String(row[idx]).replace(/\n/g, ' - ').trim();
+    };
+    
+    const hasr = get(colIdx.hasr);
+    const qadya = get(colIdx.qadya);
+    if (!hasr && !qadya) continue;
+    
+    let jadwal = get(colIdx.jadwal).replace('إدارى', 'ادارى');
+    const tohma = get(colIdx.tohma);
+    const dateStr = parseExcelDate(row[colIdx.date]);
+    const officer = cleanOfficer(get(colIdx.officer));
+    
+    // تم الإنتهاء - boolean
+    let done = row[colIdx.done];
+    done = done === true || done === 'TRUE' || done === 'true' || done === 1 || done === '1';
+    
+    data.push({
+      id: data.length + 1,
+      'رقم_الحصر': hasr,
+      'رقم_القضية': qadya,
+      'الجدول': jadwal,
+      'القسم': get(colIdx.qism),
+      'التهمة': tohma,
+      'نوع_التهمة': classifyCharge(tohma),
+      'تاريخ_الورود': dateStr,
+      'الشهر': dateStr ? dateStr.substring(0, 7) : '',
+      'الضابط': officer,
+      'ما_تم': get(colIdx.action),
+      'سبب_البقاء': get(colIdx.reason),
+      'تاريخ_التجديد': get(colIdx.renewal),
+      'محبوس': row[colIdx.presence] ? 1 : 0,
+      'تم_الانتهاء': done
+    });
+  }
+  
+  return data;
+}
+
+let currentFileName = '';
+
+// ============= PASSWORD PROTECTION =============
+let DASHBOARD_PW_HASH = "";
+
+function checkPassword() {
+  const input = document.getElementById('pwInput').value;
+  if (!input) { document.getElementById('pwInput').focus(); return; }
+  const hash = CryptoJS.SHA256(input).toString();
+  if (hash === DASHBOARD_PW_HASH) {
+    document.getElementById('passwordOverlay').style.display = 'none';
+    document.getElementById('pwError').style.display = 'none';
+  } else {
+    const errEl = document.getElementById('pwError');
+    errEl.style.display = 'block';
+    errEl.style.animation = 'none';
+    void errEl.offsetWidth; // reflow to restart animation
+    errEl.style.animation = 'shake 0.4s ease';
+    document.getElementById('pwInput').value = '';
+    document.getElementById('pwInput').focus();
+  }
+}
+
+function initPasswordOverlay() {
+  const overlay = document.getElementById('passwordOverlay');
+  if (!overlay) return;
+  if (!DASHBOARD_PW_HASH || DASHBOARD_PW_HASH === '') {
+    overlay.style.display = 'none';
+  } else {
+    overlay.style.display = 'flex';
+    setTimeout(() => { const inp = document.getElementById('pwInput'); if(inp) inp.focus(); }, 200);
+  }
+}
+
+// DATA متغير عام يتم تحديثه عند قراءة ملف الإكسل
+
+const COLORS = {
+  gold: '#c9a961', goldLight: '#e8d4a0', goldDark: '#a0824a',
+  navy: '#0d1b2a', navyMid: '#2c3e50',
+  burgundy: '#6b2c39', emerald: '#2d5f4e', rust: '#a44a3f', cream: '#f4ead5'
+};
+
+const CHART_PALETTE = ['#c9a961', '#0d1b2a', '#6b2c39', '#2d5f4e', '#a44a3f', '#a0824a', '#2c3e50', '#8b4548', '#3d6b5a', '#b85d52'];
+
+Chart.defaults.font.family = 'Cairo, sans-serif';
+Chart.defaults.font.size = 12;
+Chart.defaults.color = COLORS.navy;
+
+let charts = {};
+let filters = { section: '', table: '', status: '', officer: '', charge: '', search: '' };
+
+function getFilteredData() {
+  return DATA.filter(r => {
+    if (filters.section && r['القسم'] !== filters.section) return false;
+    if (filters.table && r['الجدول'] !== filters.table) return false;
+    if (filters.status === 'done' && !r['تم_الانتهاء']) return false;
+    if (filters.status === 'pending' && r['تم_الانتهاء']) return false;
+    if (filters.officer && r['الضابط'] !== filters.officer) return false;
+    if (filters.charge && r['التهمة'] !== filters.charge) return false;
+    if (filters.search) {
+      const s = filters.search.toLowerCase();
+      if (!r['رقم_الحصر'].toLowerCase().includes(s) && !r['رقم_القضية'].toLowerCase().includes(s)) return false;
+    }
+    return true;
+  });
+}
+
+function countBy(data, field) {
+  const counts = {};
+  data.forEach(r => {
+    const v = r[field] || 'غير محدد';
+    counts[v] = (counts[v] || 0) + 1;
+  });
+  return counts;
+}
+
+function renderKPIs() {
+  const data = getFilteredData();
+  const total = data.length;
+  const done = data.filter(r => r['تم_الانتهاء']).length;
+  const pending = total - done;
+  const completionRate = total > 0 ? ((done / total) * 100).toFixed(1) : 0;
+  const officers = new Set(data.map(r => r['الضابط']).filter(o => o && o !== 'غير محدد')).size;
+  
+  const kpis = [
+    { label: 'إجمالي القضايا', value: total, sub: 'قضية مسجلة',
+      icon: '<svg viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>',
+      highlight: true },
+    { label: 'القضايا المنتهية', value: done, sub: 'تمت الإحالة أو الإنتهاء',
+      icon: '<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>' },
+    { label: 'قيد التحقيق', value: pending, sub: 'قضية لم تنتهِ بعد',
+      icon: '<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.5 5H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>' },
+    { label: 'نسبة الإنجاز', value: completionRate, unit: '%', sub: 'من إجمالي القضايا',
+      icon: '<svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>' },
+    { label: 'عدد الضباط', value: officers, sub: 'ضابط واقعة',
+      icon: '<svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>' }
+  ];
+  
+  document.getElementById('kpiGrid').innerHTML = kpis.map(k => `
+    <div class="kpi-card ${k.highlight ? 'highlight' : ''}">
+      <div class="kpi-icon">${k.icon}</div>
+      <div class="kpi-label">${k.label}</div>
+      <div class="kpi-value">${k.value}${k.unit ? `<span class="unit">${k.unit}</span>` : ''}</div>
+      <div class="kpi-sub">${k.sub}</div>
+    </div>
+  `).join('');
+}
+
+function renderChargesChart() {
+  const data = getFilteredData();
+  const counts = countBy(data, 'نوع_التهمة');
+  const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+  const ctx = document.getElementById('chargesChart');
+  if (charts.charges) charts.charges.destroy();
+  charts.charges = new Chart(ctx, {
+    type: 'bar',
+    data: { labels: sorted.map(s => s[0]), datasets: [{ data: sorted.map(s => s[1]),
+      backgroundColor: sorted.map((_, i) => CHART_PALETTE[i % CHART_PALETTE.length]),
+      borderColor: COLORS.navy, borderWidth: 1, borderRadius: 4, maxBarThickness: 50 }] },
+    options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false },
+        tooltip: { backgroundColor: COLORS.navy, titleColor: COLORS.gold, bodyColor: COLORS.cream,
+          borderColor: COLORS.gold, borderWidth: 1, padding: 12,
+          titleFont: { family: 'Amiri', size: 14, weight: 700 },
+          bodyFont: { family: 'Cairo', size: 13 } } },
+      scales: { x: { grid: { color: 'rgba(201, 169, 97, 0.1)' }, ticks: { color: COLORS.navyMid, font: { weight: 600 } } },
+        y: { grid: { display: false }, ticks: { color: COLORS.navy, font: { weight: 600, size: 11 } } } } }
+  });
+}
+
+function renderCompletionChart() {
+  const data = getFilteredData();
+  const done = data.filter(r => r['تم_الانتهاء']).length;
+  const pending = data.length - done;
+  const ctx = document.getElementById('completionChart');
+  if (charts.completion) charts.completion.destroy();
+  charts.completion = new Chart(ctx, {
+    type: 'doughnut',
+    data: { labels: ['منتهية', 'قيد التحقيق'],
+      datasets: [{ data: [done, pending], backgroundColor: [COLORS.gold, COLORS.burgundy],
+        borderColor: COLORS.navy, borderWidth: 2, hoverOffset: 8 }] },
+    options: { responsive: true, maintainAspectRatio: false, cutout: '68%',
+      plugins: { legend: { position: 'bottom', labels: { color: COLORS.navy, font: { family: 'Cairo', weight: 600, size: 13 }, padding: 15, usePointStyle: true } },
+        tooltip: { backgroundColor: COLORS.navy, titleColor: COLORS.gold, bodyColor: COLORS.cream, padding: 12,
+          callbacks: { label: (c) => { const total = c.dataset.data.reduce((a, b) => a + b, 0);
+            const pct = total > 0 ? ((c.parsed / total) * 100).toFixed(1) : 0; return ` ${c.label}: ${c.parsed} (${pct}%)`; } } } } },
+    plugins: [{ id: 'centerText', beforeDraw: (chart) => {
+      const { ctx, chartArea } = chart;
+      const total = chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+      const done = chart.data.datasets[0].data[0];
+      const pct = total > 0 ? ((done / total) * 100).toFixed(1) : 0;
+      const cx = (chartArea.left + chartArea.right) / 2;
+      const cy = (chartArea.top + chartArea.bottom) / 2;
+      ctx.save(); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillStyle = COLORS.navy; ctx.font = 'bold 36px "Playfair Display", serif';
+      ctx.fillText(pct + '%', cx, cy - 8);
+      ctx.fillStyle = COLORS.navyMid; ctx.font = '13px Amiri, serif';
+      ctx.fillText('نسبة الإنجاز', cx, cy + 22); ctx.restore();
+    } }]
+  });
+}
+
+function renderOfficersList() {
+  const data = getFilteredData();
+  const counts = countBy(data, 'الضابط');
+  delete counts['غير محدد']; delete counts[''];
+  const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 15);
+  const max = sorted[0] ? sorted[0][1] : 1;
+  document.getElementById('officersList').innerHTML = sorted.map(([name, count], i) => `
+    <div class="officer-item">
+      <div class="officer-rank ${i < 3 ? 'top-3' : ''}">${i + 1}</div>
+      <div class="officer-name">${name}</div>
+      <div class="officer-bar-wrap"><div class="officer-bar" style="width: ${(count / max) * 100}%"></div></div>
+      <div class="officer-count">${count}</div>
+    </div>
+  `).join('') || '<div class="empty-state">لا توجد بيانات</div>';
+}
+
+function renderSectionChart() {
+  const data = getFilteredData();
+  const counts = countBy(data, 'القسم');
+  const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+  const ctx = document.getElementById('sectionChart');
+  if (charts.section) charts.section.destroy();
+  charts.section = new Chart(ctx, {
+    type: 'pie',
+    data: { labels: sorted.map(s => s[0]), datasets: [{ data: sorted.map(s => s[1]),
+      backgroundColor: [COLORS.gold, COLORS.navy, COLORS.burgundy, COLORS.emerald],
+      borderColor: '#fff', borderWidth: 3, hoverOffset: 10 }] },
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'bottom', labels: { color: COLORS.navy, font: { family: 'Cairo', weight: 600, size: 13 }, padding: 15, usePointStyle: true } },
+        tooltip: { backgroundColor: COLORS.navy, titleColor: COLORS.gold, bodyColor: COLORS.cream, padding: 12,
+          callbacks: { label: (c) => { const total = c.dataset.data.reduce((a, b) => a + b, 0);
+            const pct = ((c.parsed / total) * 100).toFixed(1); return ` ${c.label}: ${c.parsed} (${pct}%)`; } } } } }
+  });
+}
+
+function renderReasonsChart() {
+  const data = getFilteredData().filter(r => !r['تم_الانتهاء'] && r['سبب_البقاء']);
+  const counts = countBy(data, 'سبب_البقاء');
+  const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 8);
+  const ctx = document.getElementById('reasonsChart');
+  if (charts.reasons) charts.reasons.destroy();
+  if (sorted.length === 0) {
+    ctx.parentElement.innerHTML = '<div class="empty-state">لا توجد قضايا غير منتهية ضمن هذه التصفية</div>';
+    return;
+  }
+  charts.reasons = new Chart(ctx, {
+    type: 'bar',
+    data: { labels: sorted.map(s => s[0].length > 35 ? s[0].substring(0, 35) + '...' : s[0]),
+      datasets: [{ data: sorted.map(s => s[1]),
+        backgroundColor: sorted.map((_, i) => CHART_PALETTE[i % CHART_PALETTE.length]),
+        borderColor: COLORS.navy, borderWidth: 1, borderRadius: 4 }] },
+    options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false },
+        tooltip: { backgroundColor: COLORS.navy, titleColor: COLORS.gold, bodyColor: COLORS.cream, padding: 12,
+          callbacks: { title: (ctx) => sorted[ctx[0].dataIndex][0] } } },
+      scales: { x: { grid: { color: 'rgba(201, 169, 97, 0.1)' }, ticks: { color: COLORS.navyMid, stepSize: 1 } },
+        y: { grid: { display: false }, ticks: { color: COLORS.navy, font: { weight: 600, size: 10 } } } } }
+  });
+}
+
+function renderActionsChart() {
+  const data = getFilteredData();
+  const counts = countBy(data, 'ما_تم');
+  const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 7);
+  const ctx = document.getElementById('actionsChart');
+  if (charts.actions) charts.actions.destroy();
+  charts.actions = new Chart(ctx, {
+    type: 'doughnut',
+    data: { labels: sorted.map(s => s[0].length > 25 ? s[0].substring(0, 25) + '...' : s[0]),
+      datasets: [{ data: sorted.map(s => s[1]), backgroundColor: CHART_PALETTE,
+        borderColor: '#fff', borderWidth: 2, hoverOffset: 8 }] },
+    options: { responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { position: 'right', labels: { color: COLORS.navy, font: { family: 'Cairo', weight: 600, size: 11 }, padding: 8, boxWidth: 14 } },
+        tooltip: { backgroundColor: COLORS.navy, titleColor: COLORS.gold, bodyColor: COLORS.cream, padding: 12,
+          callbacks: { label: (c) => { const total = c.dataset.data.reduce((a, b) => a + b, 0);
+            const pct = ((c.parsed / total) * 100).toFixed(1); return ` ${c.parsed} (${pct}%)`; } } } } }
+  });
+}
+
+function renderTable() {
+  const data = getFilteredData();
+  document.getElementById('tableCount').textContent = `عرض ${data.length} قضية`;
+  document.getElementById('tableBody').innerHTML = data.map((r, index) => `
+    <tr>
+      <td>${index + 1}</td>
+      <td>${r['رقم_الحصر']}</td>
+      <td>${r['رقم_القضية']}</td>
+      <td><span class="badge badge-table">${r['الجدول']}</span></td>
+      <td><span class="badge badge-section">${r['القسم']}</span></td>
+      <td>${r['التهمة']}</td>
+      <td>${r['الضابط']}</td>
+      <td>${r['ما_تم']}</td>
+      <td>${r['سبب_البقاء'] || '&mdash;'}</td>
+      <td>${r['تم_الانتهاء'] ? '<span class="badge badge-success">منتهية</span>' : '<span class="badge badge-pending">قيد التحقيق</span>'}</td>
+    </tr>
+  `).join('') || '<tr><td colspan="10" class="empty-state">لا توجد نتائج</td></tr>';
+}
+
+function printTable() {
+  const data = getFilteredData();
+  const today = new Date();
+  const dateStr = today.toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' });
+  document.getElementById('printDate').textContent = `تاريخ الطباعة: ${dateStr}`;
+  document.getElementById('printCount').textContent = `عدد القضايا: ${data.length}`;
+  
+  // إخفاء عنوان الصفحة لمنع ظهور اسم الملف في ترويسة الطباعة
+  // (السطر اللي بيظهر في كل صفحة طباعة من إعدادات المتصفح نفسه)
+  const originalTitle = document.title;
+  document.title = '\u00A0'; // مسافة غير كاسرة للحدّ من ظهور اسم الملف
+  
+  // beforeprint و afterprint عشان نضمن إن العنوان متخفي في كل المتصفحات
+  const beforeHandler = () => { document.title = '\u00A0'; };
+  const afterHandler = () => {
+    document.title = originalTitle;
+    window.removeEventListener('beforeprint', beforeHandler);
+    window.removeEventListener('afterprint', afterHandler);
+  };
+  window.addEventListener('beforeprint', beforeHandler);
+  window.addEventListener('afterprint', afterHandler);
+  
+  setTimeout(() => {
+    window.print();
+    setTimeout(() => { document.title = originalTitle; }, 1500);
+  }, 120);
+}
+
+
+function clearFilters() {
+  document.getElementById('filterSection').innerHTML = '<option value="">كل الأقسام</option>';
+  document.getElementById('filterTable').innerHTML = '<option value="">كل الجداول</option>';
+  document.getElementById('filterOfficer').innerHTML = '<option value="">كل الضباط</option>';
+  document.getElementById('filterCharge').innerHTML = '<option value="">كل التهم</option>';
+  filters = { section: '', table: '', status: '', officer: '', charge: '', search: '' };
+  document.getElementById('filterSearch').value = '';
+  document.getElementById('filterStatus').value = '';
+}
+
+function populateFilters() {
+  clearFilters();
+  const sections = [...new Set(DATA.map(r => r['القسم']).filter(Boolean))].sort();
+  const tables = [...new Set(DATA.map(r => r['الجدول']).filter(Boolean))].sort();
+  const officers = [...new Set(DATA.map(r => r['الضابط']).filter(o => o && o !== 'غير محدد'))].sort();
+  const charges = [...new Set(DATA.map(r => r['التهمة']).filter(c => c && c !== 'غير محدد'))].sort();
+  const fs = document.getElementById('filterSection');
+  sections.forEach(s => fs.innerHTML += `<option value="${s}">${s}</option>`);
+  const ft = document.getElementById('filterTable');
+  tables.forEach(t => ft.innerHTML += `<option value="${t}">${t}</option>`);
+  const fo = document.getElementById('filterOfficer');
+  officers.forEach(o => fo.innerHTML += `<option value="${o}">${o}</option>`);
+  const fc = document.getElementById('filterCharge');
+  charges.forEach(c => fc.innerHTML += `<option value="${c}">${c}</option>`);
+}
+
+function renderAll() {
+  renderKPIs(); renderChargesChart(); renderCompletionChart();
+  renderOfficersList(); renderSectionChart(); renderReasonsChart();
+  renderActionsChart(); renderTable();
+}
+
+function resetFilters() {
+  filters = { section: '', table: '', status: '', officer: '', charge: '', search: '' };
+  document.getElementById('filterSection').value = '';
+  document.getElementById('filterTable').value = '';
+  document.getElementById('filterStatus').value = '';
+  document.getElementById('filterOfficer').value = '';
+  document.getElementById('filterCharge').value = '';
+  document.getElementById('filterSearch').value = '';
+  renderAll();
+}
+
+document.getElementById('filterSection').addEventListener('change', e => { filters.section = e.target.value; renderAll(); });
+document.getElementById('filterTable').addEventListener('change', e => { filters.table = e.target.value; renderAll(); });
+document.getElementById('filterStatus').addEventListener('change', e => { filters.status = e.target.value; renderAll(); });
+document.getElementById('filterOfficer').addEventListener('change', e => { filters.officer = e.target.value; renderAll(); });
+document.getElementById('filterCharge').addEventListener('change', e => { filters.charge = e.target.value; renderAll(); });
+document.getElementById('filterSearch').addEventListener('input', e => { filters.search = e.target.value; renderAll(); });
+
+
+// ============= EMBEDDED DATA LOADER =============
+let META = { snapshotDate: '', totalCases: 0 };
+
+async function loadEmbeddedData() {
+  try {
+    // Cache busting URL - bypass any caches
+    // Try multiple sources for maximum reliability
+    const urls = [
+      'https://raw.githubusercontent.com/kareememadeldin98-alt/dashboard/main/various/data.json?t=' + Date.now(),
+      'https://cdn.jsdelivr.net/gh/kareememadeldin98-alt/dashboard@main/various/data.json?v=' + Date.now(),
+      'data.json?t=' + Date.now()
+    ];
+    let json = null;
+    let lastErr = null;
+    for (const url of urls) {
+      try {
+        const response = await fetch(url, { cache: 'no-store' });
+        if (response.ok) {
+          json = await response.json();
+          console.log('Loaded from:', url);
+          break;
+        } else {
+          lastErr = 'HTTP ' + response.status + ' from ' + url;
+        }
+      } catch (e) {
+        lastErr = e.message + ' from ' + url;
+      }
+    }
+    if (!json) throw new Error('All sources failed. Last: ' + lastErr);
+    if (json.meta) META = json.meta;
+    if (json.passwordHash !== undefined) DASHBOARD_PW_HASH = json.passwordHash;
+    const raw = json.data || [];
+    DATA = raw.map((r, idx) => Object.assign({}, r, {
+      id: idx + 1,
+      'نوع_التهمة': classifyCharge(r['التهمة']),
+      'الضابط': cleanOfficer(r['الضابط'])
+    }));
+  } catch (err) {
+    console.error('Failed to load data.json:', err);
+    DATA = [];
+    META = { snapshotDate: 'فشل تحميل البيانات', totalCases: 0 };
+  }
+}
+
+document.addEventListener('DOMContentLoaded', async function() {
+  try {
+    await loadEmbeddedData();
+    initPasswordOverlay();
+    const fi = document.getElementById('fileInfo');
+    if (fi && META.snapshotDate) {
+      fi.innerHTML = '<span style="color: var(--emerald); font-weight: 700;">&#9679;</span> &nbsp; <span class="file-name">سناب شوت</span> &middot; ' + META.snapshotDate + ' &nbsp;|&nbsp; <strong style="color:#c9a961">' + DATA.length + ' قضية</strong>';
+    }
+    populateFilters();
+    renderAll();
+  } catch(err) {
+    const dbg = document.createElement('div');
+    dbg.style = 'position:fixed;top:0;left:0;right:0;background:red;color:white;padding:15px;font-size:16px;z-index:9999;direction:ltr';
+    dbg.textContent = 'JS ERROR: ' + err.message + ' | DATA: ' + DATA.length;
+    document.body.appendChild(dbg);
+  }
+});
+
+</script>
+
+
+<!-- data loaded dynamically from data.json -->
+
+
+</body>
+</html>
